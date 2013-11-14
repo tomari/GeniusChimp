@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="panelColor">#fddd</color>
+	<color name="panelLabelColor">#fddd</color>
+	<color name="buttonLabelColor">#f000</color>
+	<color name="gameViewBackgroundColor">#f000</color>
+	<color name="titleButtonClickedColor">#f0f0</color>
+	<color name="highscoreHighlightColor">#f0f0</color>
+</resources>

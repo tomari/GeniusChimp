@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/gameViewBackgroundColor" >
+
+	<LinearLayout
+		android:id="@+id/linearLayout1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:orientation="vertical" >
+
+		<TextView
+			android:id="@+id/highscoreTitle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:text="@string/highscoreTitle"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:typeface="monospace" />
+
+		<TextView
+			android:id="@+id/highscoreLine1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:typeface="monospace" />
+
+		<TextView
+			android:id="@+id/highscoreLine2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:typeface="monospace" />
+
+		<TextView
+			android:id="@+id/highscoreLine3"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:typeface="monospace" />
+		<TextView
+			android:id="@+id/highscoreLine4"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:typeface="monospace" />
+		<TextView
+			android:id="@+id/highscoreLine5"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:typeface="monospace" />
+		
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/highscoreEnd"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/linearLayout1"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="@dimen/highscore_button_margintop"
+		android:onClick="doneButtonClicked"
+		android:text="@string/highscoreDismiss"
+		android:background="@color/panelColor"
+		android:layout_margin="@dimen/title_button_margin"
+		android:padding="@dimen/title_button_padding"
+		android:textColor="@color/buttonLabelColor"
+		android:typeface="monospace" />
+	<TextView
+		android:id="@+id/scoreLabelHS"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentTop="true"
+		android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

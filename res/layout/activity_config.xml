@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/gameViewBackgroundColor"
+	android:orientation="vertical">
+	
+	<TextView
+		android:id="@+id/textView1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/settingsPanel"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<SeekBar
+		android:id="@+id/nPanelsSlider"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
+	<TextView
+		android:id="@+id/nPanelsLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_gravity="center_horizontal" />
+	
+	<TextView
+		android:id="@+id/textView2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/settingsShow"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<SeekBar
+		android:id="@+id/tShowSlider"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:max="10000" />
+	<TextView
+		android:id="@+id/tShowLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_gravity="center_horizontal" />
+	
+	<TextView
+		android:id="@+id/textView3"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/settingsBlank"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<SeekBar
+		android:id="@+id/tBlankSlider"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:max="10000" />
+	<TextView
+		android:id="@+id/tBlankLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_gravity="center_horizontal" />
+
+	<CheckBox
+	    android:id="@+id/configSound"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/settingsSound" />
+	
+	<Button
+		android:id="@+id/settingsDoneButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/settingsDismiss"
+		android:layout_gravity="center_horizontal"
+		android:onClick="doneClicked" />
+
+	<TextView
+	    android:id="@+id/textView4"
+	    android:layout_width="wrap_content"
+	    android:layout_height="fill_parent"
+	    android:layout_gravity="center_horizontal"
+	    android:gravity="bottom|center_horizontal"
+	    android:text="@string/legal" />
+
+</LinearLayout>

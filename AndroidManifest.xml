@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.example.geniuschimp"
+	android:versionCode="1"
+	android:versionName="1"
+	android:installLocation="auto" >
+	<uses-sdk
+		android:minSdkVersion="14"
+		android:targetSdkVersion="19" />
+	<supports-screens
+		android:largeScreens="true"
+		android:xlargeScreens="true" />
+	<application
+		android:allowBackup="true"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@style/AppTheme"
+		android:hardwareAccelerated="true" >
+		<activity
+			android:name="com.example.geniuschimp.TitleActivity"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name="com.example.geniuschimp.ChimpActivity"
+			android:label="@string/app_name">
+		</activity>
+		<activity
+			android:name="com.example.geniuschimp.HighscoreActivity"
+			android:label="@string/highscoreTitle">
+		</activity>
+		<activity
+			android:name="com.example.geniuschimp.ConfigActivity"
+			android:label="@string/configTitle">
+		</activity>
+	</application>
+</manifest>
