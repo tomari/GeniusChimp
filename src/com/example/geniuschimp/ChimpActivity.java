@@ -109,9 +109,18 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 		}
 		gameView.setPanels(cPanel);
 		score=0l;
-		multiplier=1l;
+		multiplier=calcFirstMultiplier();
 		updateScoreLabel();
 		phase=0;
+	}
+	private long calcFirstMultiplier() {
+		float showTimeMp=((float)ConfigActivity.defShowMillis)/(1.f+(float)showMillis);
+		float blankTimeMp=((float)blankMillis+1.f)/(float)ConfigActivity.defBlankMillis;
+		long nPx=1l;
+		for(long i=numActivatedPanels; i>1l; i--) { nPx=nPx*i; }
+		float nPanelMp=(float)(nPx);
+		float fMp=47.f*nPanelMp+showTimeMp*13.f+11.f*blankTimeMp;
+		return (long)fMp;
 	}
 	private void stageInit() {
 		int i;
@@ -163,8 +172,8 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 		} else if(nextState==GameState.WaitStart) {
 			if(state==GameState.StageCleared) {
 				playSFX(clearSndId);
-				score+=numActivatedPanels*multiplier*503l;
-				multiplier=multiplier+1009l;
+				score+=numActivatedPanels*multiplier*53l;
+				multiplier=multiplier*3l;
 				updateScoreLabel();
 			} else if(state==GameState.StageFailed) {
 				playSFX(failSndId);
@@ -196,7 +205,7 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 				seqNumber++;
 				playSFX(pingpongSndId);
 				score+=(1+seqNumber)*multiplier;
-				multiplier+=101l;
+				multiplier+=multiplier/10;
 				if(seqNumber==numActivatedPanels) {
 					transitionState(GameState.StageCleared);
 				}
