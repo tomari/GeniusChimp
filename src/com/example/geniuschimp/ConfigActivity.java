@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -27,6 +26,15 @@ public class ConfigActivity extends Activity {
 	private SharedPreferences shrP;
 	private CheckBox soundCheckbox;
 	
+	private abstract class ChimpSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
+		protected ChimpSeekBarChangeListener() {
+			onProgressChanged(null,0,false);
+		}
+		@Override
+		public void onStartTrackingTouch(SeekBar seekBar) { }
+		@Override
+		public void onStopTrackingTouch(SeekBar seekBar) { }
+	}
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,37 +46,27 @@ public class ConfigActivity extends Activity {
 		nPanelsLabel=(TextView)findViewById(R.id.nPanelsLabel);
 		nPanelsSlider=(SeekBar)findViewById(R.id.nPanelsSlider);
 		nPanelsSlider.setMax(ChimpActivity.maxChimpPanels-nPanelsSliderOffset);
-		nPanelsSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+		nPanelsSlider.setOnSeekBarChangeListener(new ChimpSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 				nPanelsLabel.setText(String.format(numFmt,progress+nPanelsSliderOffset));
 			}
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) { }
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) { } });
+		});
 		tShowLabel=(TextView)findViewById(R.id.tShowLabel);
 		tShowSlider=(SeekBar)findViewById(R.id.tShowSlider);
-		tShowSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+		tShowSlider.setOnSeekBarChangeListener(new ChimpSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				tShowLabel.setText(String.format(numFmt,progress));
+				tShowLabel.setText(String.format(numFmt,progress)+" ms");
 			}
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) { }
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) { } });
+		});
 		tBlankLabel=(TextView)findViewById(R.id.tBlankLabel);
 		tBlankSlider=(SeekBar)findViewById(R.id.tBlankSlider);
-		tBlankSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+		tBlankSlider.setOnSeekBarChangeListener(new ChimpSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				tBlankLabel.setText(String.format(numFmt,progress));
+				tBlankLabel.setText(String.format(numFmt,progress)+" ms");
 			}
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {}
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {}
 		});
 		
 		soundCheckbox=(CheckBox)findViewById(R.id.configSound);

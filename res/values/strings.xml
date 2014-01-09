@@ -16,8 +16,8 @@
 	<string xml:formatted="false" name="highscoreFormat">\u0020%2d %,26d</string>
 	<string name="configTitle">Settings</string>
 	<string name="settingsPanel">Panels</string>
-	<string name="settingsShow">Open time (milliseconds)</string>
-	<string name="settingsBlank">Blank time (milliseconds)</string>
+	<string name="settingsShow">Open time</string>
+	<string name="settingsBlank">Blank time</string>
 	<string name="settingsDismiss">Done</string>
 	<string xml:formatted="false" name="settingsNumFormat">%,d</string>
 	<string name="settingsSound">Enable Sound</string>
