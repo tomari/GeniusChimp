@@ -14,7 +14,7 @@
 		android:layout_margin="@dimen/title_button_margin"
 		android:padding="@dimen/title_button_padding"
 		android:text="@string/highscore"
-		android:textColor="@color/buttonLabelColor"
+		android:textColor="@color/chimpbutton_fg"
 		android:typeface="monospace"
 		android:onClick="HighscoreButtonClicked" />
 
@@ -28,7 +28,7 @@
 		android:layout_margin="@dimen/title_button_margin"
 		android:padding="@dimen/title_button_padding"
 		android:text="@string/start_game"
-		android:textColor="@color/buttonLabelColor"
+		android:textColor="@color/chimpbutton_fg"
 		android:typeface="monospace"
 		android:onClick="StartButtonClicked" />
 
@@ -42,7 +42,7 @@
 		android:layout_margin="@dimen/title_button_margin"
 		android:padding="@dimen/title_button_padding"
 		android:text="@string/config"
-		android:textColor="@color/buttonLabelColor"
+		android:textColor="@color/chimpbutton_fg"
 		android:typeface="monospace"
 		android:onClick="ConfigButtonClicked" />
 

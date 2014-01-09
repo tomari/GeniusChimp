@@ -6,4 +6,6 @@
 	<color name="gameViewBackgroundColor">#f000</color>
 	<color name="titleButtonClickedColor">#f0f0</color>
 	<color name="highscoreHighlightColor">#f0f0</color>
+	<color name="buttonLabelFocusedColor">#f008</color>
+	<color name="buttonLabelPressedColor">#f888</color>
 </resources>

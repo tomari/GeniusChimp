@@ -74,7 +74,7 @@
 		android:background="@color/panelColor"
 		android:layout_margin="@dimen/title_button_margin"
 		android:padding="@dimen/title_button_padding"
-		android:textColor="@color/buttonLabelColor"
+		android:textColor="@color/chimpbutton_fg"
 		android:typeface="monospace" />
 	<TextView
 		android:id="@+id/scoreLabelHS"
