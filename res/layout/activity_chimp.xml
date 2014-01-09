@@ -30,7 +30,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentRight="true"
 	    android:layout_alignParentTop="true"
-	    android:textAppearance="?android:attr/textAppearanceMedium" />
+		android:textSize="@dimen/highscore_fontsz" />
 
 	<TextView
 	    android:id="@+id/phaseLabelLabel"
@@ -39,7 +39,7 @@
 	    android:layout_alignParentLeft="true"
 	    android:layout_alignParentTop="true"
 	    android:text="@string/PhaseLabel"
-	    android:textAppearance="?android:attr/textAppearanceMedium" />
+		android:textSize="@dimen/highscore_fontsz" />
 
 	<TextView
 	    android:id="@+id/phaseLabel"
@@ -47,6 +47,6 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentTop="true"
 	    android:layout_toRightOf="@+id/phaseLabelLabel"
-	    android:textAppearance="?android:attr/textAppearanceMedium" />
+		android:textSize="@dimen/highscore_fontsz" />
 
 </RelativeLayout>

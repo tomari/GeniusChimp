@@ -7,5 +7,6 @@
     <dimen name="title_button_margin">15dp</dimen>
     <dimen name="title_title_margin_bottom">20dp</dimen>
     <dimen name="highscore_button_margintop">64dp</dimen>
+	<dimen name="highscore_fontsz">16sp</dimen>
 
 </resources>

@@ -19,7 +19,7 @@
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
 			android:text="@string/highscoreTitle"
-			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textSize="@dimen/highscore_fontsz"
 			android:typeface="monospace" />
 
 		<TextView
@@ -27,7 +27,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textSize="@dimen/highscore_fontsz"
 			android:typeface="monospace" />
 
 		<TextView
@@ -35,7 +35,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textSize="@dimen/highscore_fontsz"
 			android:typeface="monospace" />
 
 		<TextView
@@ -43,21 +43,21 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textSize="@dimen/highscore_fontsz"
 			android:typeface="monospace" />
 		<TextView
 			android:id="@+id/highscoreLine4"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textSize="@dimen/highscore_fontsz"
 			android:typeface="monospace" />
 		<TextView
 			android:id="@+id/highscoreLine5"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textSize="@dimen/highscore_fontsz"
 			android:typeface="monospace" />
 		
 	</LinearLayout>
