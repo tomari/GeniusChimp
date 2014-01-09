@@ -148,18 +148,29 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 		}
 	}
 	private void transitionState(GameState nextState) {
-		//timer.cancel();
 		if(state==GameState.WaitStart) {
 			touchScreenMessage.setVisibility(View.INVISIBLE);
 		}
 		if(nextState==GameState.Show){
 			gameView.setPanelVisibility(true);
-			playSFX(startSndId);
-			timer.enqueueTimer(showMillis);
+			if(showMillis>0) {
+				playSFX(startSndId);
+				timer.enqueueTimer(showMillis);
+			} else {
+				transitionState(GameState.Blank);
+				return;
+			}
 		} else if(nextState==GameState.Blank) {
-			gameView.setPanelVisibility(false);
-			playSFX(startSndId);
-			timer.enqueueTimer(blankMillis);
+			if(blankMillis>0) {
+				gameView.setPanelVisibility(false);
+				if(blankMillis>500) {
+					playSFX(startSndId);
+				}
+				timer.enqueueTimer(blankMillis);
+			} else {
+				transitionState(GameState.AcceptSequence);
+				return;
+			}
 		} else if(nextState==GameState.AcceptSequence) {
 			flipAll(false);
 			gameView.setPanelVisibility(true);
@@ -219,6 +230,16 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 				transitionState(GameState.StageFailed);
 			}
 			return true;
+		} else if(state==GameState.Show) {
+			if(panel.num==0) {
+				timer.cancel();
+				transitionState(GameState.AcceptSequence);
+				panel.flipped=!panel.flipped;
+				seqNumber++;
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
