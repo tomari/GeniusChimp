@@ -22,12 +22,6 @@ This application is verified using an Android 4.1.2 device (Sony SO-03E),
 and an Android 4.4 emulator.
 This app does not request any permissions.
 
-## Binary
-
-http://www.adrive.com/public/6FKvX6/GeniusChimp-1.apk
-
-SHA1(GeniusChimp-1.apk)= 80e67cc01388d67f26c5d83c12a8288a6c6ad1c6
-
 ## How to compile
 
 Android SDK for API 19 is required to compile this program.
