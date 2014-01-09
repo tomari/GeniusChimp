@@ -34,7 +34,8 @@
 		</activity>
 		<activity
 			android:name="com.example.geniuschimp.ConfigActivity"
-			android:label="@string/configTitle">
+			android:label="@string/configTitle"
+			android:theme="@style/ConfigScreenTheme">
 		</activity>
 	</application>
 </manifest>

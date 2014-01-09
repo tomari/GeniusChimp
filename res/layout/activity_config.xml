@@ -61,14 +61,6 @@
 	    android:layout_height="wrap_content"
 	    android:text="@string/settingsSound" />
 	
-	<Button
-		android:id="@+id/settingsDoneButton"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/settingsDismiss"
-		android:layout_gravity="center_horizontal"
-		android:onClick="doneClicked" />
-
 	<TextView
 	    android:id="@+id/textView4"
 	    android:layout_width="wrap_content"

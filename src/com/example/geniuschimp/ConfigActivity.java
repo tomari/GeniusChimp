@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
@@ -30,6 +31,7 @@ public class ConfigActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_config);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		numFmt=getString(R.string.settingsNumFormat);
 		
@@ -82,10 +84,6 @@ public class ConfigActivity extends Activity {
 		tBlankSlider.setProgress(blankMillis);
 		soundCheckbox.setChecked(enableSound);
 	}
-	public boolean doneClicked(View v) {
-		finish();
-		return true;
-	}
 	@Override
 	public void onPause() {
 		int nPanels=nPanelsSlider.getProgress()+nPanelsSliderOffset;
@@ -105,4 +103,16 @@ public class ConfigActivity extends Activity {
 	public void onDestroy() {
 		super.onDestroy();
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int menuId=item.getItemId();
+		if(menuId==android.R.id.home) {
+			finish();
+			return true;
+		} else {
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
 }
