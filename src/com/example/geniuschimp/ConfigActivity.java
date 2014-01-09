@@ -16,7 +16,7 @@ public class ConfigActivity extends Activity {
 	public static final String PrefsKeySound="sound";
 	public static final int defNumPanels=8;
 	public static final int defShowMillis=3000;
-	public static final int defBlankMillis=1500;
+	public static final int defBlankMillis=800;
 	public static final boolean defSound=true;
 	
 	private static final int nPanelsSliderOffset=2;
