@@ -1,10 +1,8 @@
 package com.example.geniuschimp;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.CheckBox;
@@ -41,9 +39,12 @@ public class ConfigActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_config);
+		
+		/*
 		if(android.os.Build.VERSION.SDK_INT>11) {
 			setActionbarBackButton();
 		}
+		*/
 		
 		numFmt=getString(R.string.settingsNumFormat);
 		
@@ -116,8 +117,10 @@ public class ConfigActivity extends Activity {
 			return super.onOptionsItemSelected(item);
 		}
 	}
+	/*
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void setActionbarBackButton() {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
+	*/
 }

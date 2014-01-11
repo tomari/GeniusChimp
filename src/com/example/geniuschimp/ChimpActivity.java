@@ -52,7 +52,7 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 	private TextView phaseLabel;
 	private final int numPhases=8;
 	private final int millisBeforeHighscore=500;
-	private boolean sysUIvisible=true;
+	// private boolean sysUIvisible=true;
 	private float soundVolume;
 
 	@Override
@@ -207,9 +207,11 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 		soundPool.play(SFXid, soundVolume, soundVolume, 1, 0, 1.f);
 	}
 	public boolean onPanelTouched(ChimpPanel panel) {
+		/*
 		if(sysUIvisible) {
 			hideSystemUi();
 		}
+		*/
 		if(state==GameState.AcceptSequence) {
 			if(panel.num==seqNumber) {
 				panel.flipped=!panel.flipped;
@@ -247,9 +249,11 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 	}
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		/*
 		if(sysUIvisible) {
 			hideSystemUi();
 		}
+		*/
 		if(event.getAction()==MotionEvent.ACTION_DOWN) {
 			if(state==GameState.WaitStart){
 				transitionState(GameState.Show);
@@ -287,6 +291,7 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 			return false;
 		}
 	}
+	/*
 	@TargetApi(19)
 	private void hideSystemUi() {
 		int SDK_INT = android.os.Build.VERSION.SDK_INT;
@@ -303,13 +308,15 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 			}
 		}
 		sysUIvisible=false;
-	}
+	}*/
 	@TargetApi(Build.VERSION_CODES.FROYO)
 	@Override
 	public void onPause() {
+		/*
 		if(android.os.Build.VERSION.SDK_INT>=8) {
 			soundPool.autoPause();
 		}
+		*/
 		if(isTimerActivatedInState(state)) {
 			timer.cancel();
 		}
@@ -319,17 +326,22 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 	@Override
 	public void onResume() {
 		super.onResume();
+		/*
 		if(android.os.Build.VERSION.SDK_INT>=8) {
 			soundPool.autoResume();
 		}
+		*/
 		if(isTimerActivatedInState(state)) {
 			timer.enqueueTimer(1000); // tekitou
 		}
+		/*
 		hideSystemUi();
 		if(android.os.Build.VERSION.SDK_INT>=11) {
 			registerUIChangeListener();
 		}
+		*/
 	}
+	/*
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void registerUIChangeListener() {
 		View rootView = getWindow().getDecorView();
@@ -340,6 +352,7 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 			}
 		});
 	}
+	*/
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
 		savedInstanceState.putSerializable(cPanelSaveLabel, cPanel);

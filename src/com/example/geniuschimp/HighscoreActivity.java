@@ -2,13 +2,10 @@ package com.example.geniuschimp;
 
 import java.text.NumberFormat;
 import java.util.Arrays;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.SoundPool;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -43,8 +40,8 @@ public class HighscoreActivity extends Activity {
 	private SharedPreferences shrP;
 	private final String score0="score0", score1="score1",score2="score2",score3="score3",score4="score4";
 	private final String panels0="panels0",panels1="panels1",panels2="panels2",panels3="panels3",panels4="panels4";
-	private SoundPool soundPool=null;
-	private float soundVolume=0.f;
+	// private SoundPool soundPool=null;
+	// private float soundVolume=0.f;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,9 +49,11 @@ public class HighscoreActivity extends Activity {
 		setContentView(R.layout.activity_highscore);
 		
 		shrP=getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+		/*
 		if(android.os.Build.VERSION.SDK_INT>=8) {
 			playWelcomeSound();
 		}
+		*/
 		for(int i=0; i<highscores.length; i++) {
 			highscores[i]=new HighscoreEntry();
 		}
@@ -66,16 +65,17 @@ public class HighscoreActivity extends Activity {
 			panels=i.getIntExtra("panels", 0);
 			score=i.getLongExtra("score", -1l);
 			
-			int sndResId;
+			// int sndResId;
 			if(score>0) {
 				scoreLabel.setText(numFormat.format(score));
 				if(score>highscores[numHighscores-1].score) {
 					updateHighscores();
-					sndResId=R.raw.highscore;
-				} else {
+					// sndResId=R.raw.highscore;
+				} /* else {
 					sndResId=R.raw.gameover;
 				}
 				soundPool.load(this,sndResId,1);
+				*/
 			} else {
 				scoreLabel.setVisibility(View.INVISIBLE);
 			}
@@ -91,6 +91,7 @@ public class HighscoreActivity extends Activity {
 		}
 		updateHighscoreView();
 	}
+	/*
 	@TargetApi(Build.VERSION_CODES.FROYO)
 	private void playWelcomeSound() {
 		boolean soundEnabled=shrP.getBoolean(ConfigActivity.PrefsKeySound, ConfigActivity.defSound);
@@ -102,6 +103,7 @@ public class HighscoreActivity extends Activity {
 			public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
 				if(status==0) { soundPool.play(sampleId, soundVolume, soundVolume, 1, 0, 1.f); } }});
 	}
+	*/
 	private void findTextViews() {
 		highscoreLines[0]=(TextView)findViewById(R.id.highscoreLine1);
 		highscoreLines[1]=(TextView)findViewById(R.id.highscoreLine2);
@@ -159,7 +161,7 @@ public class HighscoreActivity extends Activity {
 	}
 	@Override
 	public void onDestroy() {
-		soundPool.release();
+		// soundPool.release();
 		super.onDestroy();
 	}
 	@Override
