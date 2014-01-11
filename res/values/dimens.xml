@@ -4,9 +4,9 @@
 	<dimen name="activity_horizontal_margin">16dp</dimen>
 	<dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="title_button_padding">15dp</dimen>
-    <dimen name="title_button_margin">15dp</dimen>
-    <dimen name="title_title_margin_bottom">20dp</dimen>
+    <dimen name="title_button_margin">5dp</dimen>
+    <dimen name="title_title_margin_bottom">10dp</dimen>
     <dimen name="highscore_button_margintop">64dp</dimen>
-	<dimen name="highscore_fontsz">16sp</dimen>
+	<dimen name="highscore_fontsz">14sp</dimen>
 
 </resources>
