@@ -14,11 +14,12 @@ Try it.
 
 ## Supported Devices
 
-Requires Android 4.0 and later.
+Requires Android 2.2 and later.
 
 Tablets are preferred for chimpanzees (they are not familiar with the tiny screen on smartphones).
 
 This application is verified using an Android 4.1.2 device (Sony SO-03E),
+Android 2.3.6 device (Google Nexus One),
 and an Android 4.4 emulator.
 This app does not request any permissions.
 
