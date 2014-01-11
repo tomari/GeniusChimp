@@ -1,10 +1,11 @@
 package com.example.geniuschimp;
 
 import java.text.NumberFormat;
-
 import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
-public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchListener, TimerThread.TimerListener, View.OnSystemUiVisibilityChangeListener {
+public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchListener, TimerThread.TimerListener {
 	public static final int maxChimpPanels=12;
 	private static final String cPanelSaveLabel="cpanels";
 	private static final String stateSaveLabel="state";
@@ -286,29 +287,58 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 			return false;
 		}
 	}
+	@TargetApi(19)
 	private void hideSystemUi() {
-		View rootView = getWindow().getDecorView();
-		rootView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
+		int SDK_INT = android.os.Build.VERSION.SDK_INT;
+		if(SDK_INT>=11) {
+			View rootView=getWindow().getDecorView();
+			if(SDK_INT >= 11 && SDK_INT < 14) {
+				rootView.setSystemUiVisibility(View.STATUS_BAR_HIDDEN);
+			} else if(SDK_INT >= 14 && SDK_INT < 19) {
+				rootView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LOW_PROFILE);
+			} else if(SDK_INT >= 19) {
+				rootView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
+						| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+						| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+			}
+		}
 		sysUIvisible=false;
 	}
+	@TargetApi(Build.VERSION_CODES.FROYO)
 	@Override
 	public void onPause() {
-		soundPool.autoPause();
+		if(android.os.Build.VERSION.SDK_INT>=8) {
+			soundPool.autoPause();
+		}
 		if(isTimerActivatedInState(state)) {
 			timer.cancel();
 		}
 		super.onPause();
 	}
+	@TargetApi(Build.VERSION_CODES.FROYO)
 	@Override
 	public void onResume() {
 		super.onResume();
-		soundPool.autoResume();
+		if(android.os.Build.VERSION.SDK_INT>=8) {
+			soundPool.autoResume();
+		}
 		if(isTimerActivatedInState(state)) {
 			timer.enqueueTimer(1000); // tekitou
 		}
 		hideSystemUi();
+		if(android.os.Build.VERSION.SDK_INT>=11) {
+			registerUIChangeListener();
+		}
+	}
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	private void registerUIChangeListener() {
 		View rootView = getWindow().getDecorView();
-		rootView.setOnSystemUiVisibilityChangeListener(this);
+		rootView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+			@Override
+			public void onSystemUiVisibilityChange(int visibility) {
+				sysUIvisible=true;
+			}
+		});
 	}
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -340,9 +370,5 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 		soundPool=null;
 		timer.enqueueTimer(-1);
 		super.onDestroy();
-	}
-	@Override
-	public void onSystemUiVisibilityChange(int visibility) {
-		sysUIvisible=true;
 	}
 }

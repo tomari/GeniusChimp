@@ -2,12 +2,13 @@ package com.example.geniuschimp;
 
 import java.text.NumberFormat;
 import java.util.Arrays;
-
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -51,14 +52,9 @@ public class HighscoreActivity extends Activity {
 		setContentView(R.layout.activity_highscore);
 		
 		shrP=getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-		boolean soundEnabled=shrP.getBoolean(ConfigActivity.PrefsKeySound, ConfigActivity.defSound);
-		soundVolume=soundEnabled?1.f:0.f;
-		
-		soundPool=new SoundPool(1, android.media.AudioManager.STREAM_MUSIC, 0);
-		soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-			@Override
-			public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-				if(status==0) { soundPool.play(sampleId, soundVolume, soundVolume, 1, 0, 1.f); } }});
+		if(android.os.Build.VERSION.SDK_INT>=8) {
+			playWelcomeSound();
+		}
 		for(int i=0; i<highscores.length; i++) {
 			highscores[i]=new HighscoreEntry();
 		}
@@ -94,6 +90,17 @@ public class HighscoreActivity extends Activity {
 			}
 		}
 		updateHighscoreView();
+	}
+	@TargetApi(Build.VERSION_CODES.FROYO)
+	private void playWelcomeSound() {
+		boolean soundEnabled=shrP.getBoolean(ConfigActivity.PrefsKeySound, ConfigActivity.defSound);
+		soundVolume=soundEnabled?1.f:0.f;
+		
+		soundPool=new SoundPool(1, android.media.AudioManager.STREAM_MUSIC, 0);
+		soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+			@Override
+			public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+				if(status==0) { soundPool.play(sampleId, soundVolume, soundVolume, 1, 0, 1.f); } }});
 	}
 	private void findTextViews() {
 		highscoreLines[0]=(TextView)findViewById(R.id.highscoreLine1);
