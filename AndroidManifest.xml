@@ -15,7 +15,7 @@
 		android:icon="@drawable/ic_launcher"
 		android:label="@string/app_name"
 		android:theme="@style/AppTheme"
-		android:hardwareAccelerated="true" >
+		android:hardwareAccelerated="false" >
 		<activity
 			android:name="com.example.geniuschimp.TitleActivity"
 			android:label="@string/app_name">
