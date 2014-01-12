@@ -60,6 +60,11 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chimp);
 
+		// Workaround hardware acceleration issue
+		if(android.os.Build.VERSION.SDK_INT>=16) {
+			turnonHWaccel();
+		}
+		
 		SharedPreferences shrP=getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
 		boolean soundEnabled=shrP.getBoolean(ConfigActivity.PrefsKeySound, ConfigActivity.defSound);
 		soundVolume=soundEnabled?1.f:0.f;
@@ -103,6 +108,11 @@ public class ChimpActivity extends Activity implements ChimpGameView.PanelTouchL
 				touchScreenMessage.setVisibility(View.VISIBLE);
 			}
 		}
+	}
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+	private void turnonHWaccel() {
+		getWindow().setFlags(android.view.WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+				android.view.WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 	}
 	private void chimpInit() {
 		for(int i=0; i<maxChimpPanels; i++) {
