@@ -13,13 +13,13 @@
 \u0020\u0020***\u0020\u0020Top 5 Chimpanzees\u0020\u0020***\u0020\n\n
 \u0020#Panel\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020Score\u0020\n
 -------------------------------</string>
-	<string xml:formatted="false" name="highscoreFormat">\u0020%2d %,26d</string>
+	<string formatted="false" name="highscoreFormat">\u0020%2d %,26d</string>
 	<string name="configTitle">Settings</string>
 	<string name="settingsPanel">Panels</string>
 	<string name="settingsShow">Open time</string>
 	<string name="settingsBlank">Blank time</string>
 	<string name="settingsDismiss">Done</string>
-	<string xml:formatted="false" name="settingsNumFormat">%,d</string>
+	<string formatted="false" name="settingsNumFormat">%,d</string>
 	<string name="settingsSound">Enable Sound</string>
 	<string name="legal">Copyright (C) 2013\u0020\u0020Hisanobu Tomari.\nThis program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions; see the source for details.\nhttp://davy.nyacom.net/gchimp/</string>
 </resources>
