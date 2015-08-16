@@ -1,5 +1,7 @@
 <resources>
-	<style name="ConfigScreenTheme" parent="android:Theme.Material"></style>
-	<style name="AppBaseTheme" parent="android:Theme.Holo.NoActionBar.Fullscreen">
+	<style name="ConfigScreenTheme" parent="android:Theme.DeviceDefault"></style>
+	<!-- Android v5.0 (v21) has an implementation error where fixed-with font setting
+		is ignored. Reverting to Holo theme fixes the issue -->
+	<style name="AppBaseTheme" parent="android:Theme.Holo.NoActionBar">
 	</style>
 </resources>

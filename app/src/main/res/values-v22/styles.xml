@@ -1,0 +1,5 @@
+<resources>
+	<style name="ConfigScreenTheme" parent="android:Theme.DeviceDefault"></style>
+	<style name="AppBaseTheme" parent="android:Theme.DeviceDefault.NoActionBar">
+	</style>
+</resources>
