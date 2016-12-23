@@ -21,5 +21,5 @@
 	<string name="settingsDismiss">Done</string>
 	<string formatted="false" name="settingsNumFormat">%,d</string>
 	<string name="settingsSound">Enable Sound</string>
-	<string name="legal">Copyright (C) 2013\u0020\u0020Hisanobu Tomari.\nThis program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions; see the source for details.\nhttp://davy.nyacom.net/gchimp/</string>
+	<string name="legal">Copyright (C) 2013-2016\u0020\u0020Hisanobu Tomari.\nThis program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions; see the sources for details.\nhttps://www.okqubit.net/gchimp/</string>
 </resources>
