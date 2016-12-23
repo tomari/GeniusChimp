@@ -4,9 +4,6 @@
 	android:versionCode="6"
 	android:versionName="6"
 	android:installLocation="auto" >
-	<uses-sdk
-		android:minSdkVersion="8"
-		android:targetSdkVersion="22" />
 	<supports-screens
 		android:largeScreens="true"
 		android:xlargeScreens="true" />
